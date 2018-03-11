@@ -485,7 +485,7 @@ p.download {
 @media all and (max-device-width: 600px) {
     
     html, body {
-        width: 100%;
+        width: 375px;
     }
 
     .mid-header {
@@ -507,7 +507,7 @@ p.download {
 
     }
     .Pay__video {
-        height: 500px;
+        height: 350px;
     }
     .Price__video {
         width: 510px;
@@ -556,6 +556,7 @@ p.download {
 
     .pay-video-wrap {
         width: 100%;
+        align-items: center;
         /* height: 450px; */
     }
 
@@ -564,7 +565,7 @@ p.download {
     }
 
     .Pay__video {
-        height: 400px;
+        height: 350px;
     }
 
     .pay-text-container {
