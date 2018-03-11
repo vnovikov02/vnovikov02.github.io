@@ -523,20 +523,26 @@ p.download {
         display: flex;
         flex-direction: column;
         flex-flow: column-reverse;
+        justify-content: center;
     }
 
     .video-wrapper {
-        width: 100%;
-        /* height: fit-content; */
-    }
-
-    .video-price-container {
-        /* height: 320px; */
-    }
-
-    .price_video-bubble, .price_video-text {
         display: none;
     }
+    .price_video-bubble 
+     {
+        display: none;
+    }
+    .price_video-text {
+        display: none;
+    }
+    .Price__video {
+        display: none;
+    }
+    .Pay__video {
+        display: none;
+    }
+
 
     .price-description {
         width: 100%;
@@ -545,30 +551,19 @@ p.download {
         margin: 30px 0;
     }
 
-    .Price__video {
-        width: 320px;
-        height: 281px;
-    }
-
     .payment-flex {
         flex-direction: column;
     }
 
     .pay-video-wrap {
-        width: 100%;
-        align-items: center;
-        /* height: 450px; */
+    display: none;
     }
 
     .pay-content {
         width: 100%;
     }
 
-    .Pay__video {
-        height: 350px;
-    }
-
     .pay-text-container {
-        padding: 0 30px;
+        padding: 40px 30px;
     }
 }
