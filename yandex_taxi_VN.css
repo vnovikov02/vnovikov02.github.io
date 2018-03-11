@@ -97,7 +97,9 @@ a.my-link:active, a.my-link:hover {
     /* width: 100%; */
 }
 
-@media only screen and (max-width: 1130px) {
+
+
+@media only screen and (min-width: 600px) {
     .Intro__video {
         width: 940px;
         height: 806px;
@@ -152,7 +154,6 @@ a.my-link:active, a.my-link:hover {
     width: 100%;
     height: 735px;
     padding-bottom: 25px;
-    object-fit: scale-down;
     overflow: hidden;
 }
 
@@ -478,4 +479,95 @@ p.download {
 .footer-link {
     color: #999;
     text-decoration: none;
+}
+
+/* adaptation for mobile devices below: */
+@media all and (max-device-width: 600px) {
+    
+    html, body {
+        width: 400px;
+    }
+
+    .mid-header {
+        display: none;
+    }
+
+    .content-type-1 {
+        padding: 0 30px;
+    }
+    
+    .video-container {
+        width: 100%;
+        height: fit-content;
+        padding-top: 60px;
+    }
+
+    .Intro__video {
+        display: none;
+
+    }
+    .Pay__video {
+        height: 500px;
+    }
+    .Price__video {
+        width: 510px;
+        height: 449px;
+    }
+
+    .features-container {
+        display: block;
+        padding: 0 30px;
+    }
+
+    .start-price {
+        display: flex;
+        flex-direction: column;
+        flex-flow: column-reverse;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .video-price-container {
+        height: 320px;
+    }
+
+    .price_video-bubble, .price_video-text {
+        display: none;
+    }
+
+    .price-description {
+        width: 100%;
+        padding: 0 30px;
+        height: fit-content;
+        margin: 30px 0;
+    }
+
+    .Price__video {
+        width: 320px;
+        height: 281px;
+    }
+
+    .payment-flex {
+        flex-direction: column;
+    }
+
+    .pay-video-wrap {
+        width: 100%;
+        height: 450px;
+    }
+
+    .pay-content {
+        width: 100%;
+    }
+
+    .Pay__video {
+        height: 400px;
+    }
+
+    .pay-text-container {
+        padding: 0 30px;
+    }
 }
