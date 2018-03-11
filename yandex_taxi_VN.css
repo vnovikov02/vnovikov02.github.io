@@ -72,12 +72,55 @@ a.my-link:active, a.my-link:hover {
 
 .Intro__video {
     display: block;
-    width: 1500px;
-    height: 1285px;
     position: absolute;
     left: 10px;
     /* width: 100%; */
 }
+
+@media only screen and (max-width: 1130px) {
+    .Intro__video {
+        width: 940px;
+        height: 806px;
+    }
+    .Pay__video {
+        height: 500px;
+    }
+    .Price__video {
+        width: 510px;
+        height: 449px;
+    }
+}
+
+@media only screen and (min-width: 1130px) {
+    .Intro__video {
+        width: 1120px;
+        height: 968px;
+    }
+    .Pay__video {
+        height: 610px;
+    }
+    .Price__video {
+        width: 637px;
+        height: 561px;
+    }
+}
+
+@media only screen and (min-width: 1410px) {
+    .Intro__video {
+        width: 1500px;
+        height: 1285px;
+    }
+    .Pay__video {
+        height: 735px;
+    }
+
+    .Price__video {
+        width: 910px;
+        height: 801px;
+    }
+}
+
+
 
 .video-container {
     box-sizing: border-box;
@@ -86,10 +129,10 @@ a.my-link:active, a.my-link:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     width: 100%;
     height: 655px;
     padding-bottom: 25px;
+    object-fit: scale-down;
     overflow: hidden;
 }
 
@@ -101,7 +144,6 @@ a.my-link:active, a.my-link:hover {
     padding-left: 120px;
     
     text-align: left;
-    /* left: -520px; */
     top: -50px;
     z-index: 2;
 }
@@ -187,8 +229,6 @@ h2.features-header {
 
 .Price__video {
     display: block;
-    width: 910px;
-    height: 801px;
     position: absolute;
     z-index: 5;
 }
@@ -239,8 +279,6 @@ h2.features-header {
 
 .Pay__video {
     display: block;
-    width: 735px;
-    height: 735px;
     position: absolute;
     z-index: 6;
 }
@@ -261,7 +299,7 @@ h2.features-header {
     background-color: #e9e9e9;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     width: 50%;
     height: 735px;
     z-index: 1;
