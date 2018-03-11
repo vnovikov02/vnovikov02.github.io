@@ -130,7 +130,7 @@ a.my-link:active, a.my-link:hover {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 655px;
+    height: 735px;
     padding-bottom: 25px;
     object-fit: scale-down;
     overflow: hidden;
@@ -142,6 +142,7 @@ a.my-link:active, a.my-link:hover {
     position: relative;
     margin: 0 auto;
     padding-left: 120px;
+    Padding-bottom: 120px;
     
     text-align: left;
     top: -50px;
