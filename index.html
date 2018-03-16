@@ -1,151 +1,252 @@
 <!DOCTYPE html>
-<html>
+<!-- Questionnaire web form as a frontend interface -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- set viewport to mitigate the issue with improper virtual resolution for render on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Скачайте приложение Яндекс.такси - Яндекс.Такси</title>
-    <link rel="stylesheet" href="yandex_taxi_VN.css">
-    <link href="https://taxi.yandex.ru/favicon-@2x.png" sizes="32x32" type="image/png" rel="icon">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
+
 <body>
-        <header>
-            <div class="logo-header">
-                <a class="logo-yandex" href="https://yandex.ru" title="Яндекс"></a>
-                <a class="logo-taxi" href="https://taxi.yandex.ru" title="Такси"></a>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Financial business advisors assessment</h1>
+        <p class="lead">Please take time to answer all the questions, it will only take 5 min.</p>
+        
+        <hr class="my-4">
+        <p>This app uses Google spreadsheets through API as back-end and HTML5 + Bootstrap 4.0 as front-end.</p>
+    </div>    
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form>
+                    <div class="form-group">
+                        <label for="InputName">Your name</label>
+                        <input type="email" class="form-control" id="InputName" placeholder="Ivan Ivanov">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputEmail">Your E-mail address</label>
+                        <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com">
+                    </div>
+                </form>
             </div>
-            <nav class="mid-header">
-                <div class="mid-header-item new-arrow">
-                    <span class="add-arrow"><a class="my-link" href="/">Тарифы</a></span>
-                </div>
-                <div class="mid-header-item">
-                    <a class="my-link light" href="#mobile">Мобильное приложение</a>
-                </div>
-                <div class="mid-header-item">
-                    <a class="my-link" href="https://yandex.ru/support/taxi/">Служба поддержки</a>
-                </div>
-                <div class="mid-header-item">
-                    <span class="add-arrow"><a class="my-link" href="/">Работа с нами</a></span>
-                </div>
-            </nav>
-            <div class="header-login">
-                <button type="button" value="1" autocomplete="off" class="button-login"><span class="icon-login" title="">&nbsp;</span><span class="button-text">Войти</span></button>
+        </div>
+
+        <!-- Below is the form to select the FBA - load from google spreadsheet later -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form>
+                    <label>Your financial business advisor</label>
+                    <select class="form-control">
+                        <option value="" selected disabled hidden>Please select</option>
+                        <option>Ivan Belyaev</option>
+                        <option>Yulia Chai-Van-Sebi</option>
+                        <option>Pavel Mironov</option>
+                        <option>Anastasia Strogova</option>
+                        <option>Daria Trushnikova</option>
+                        <option>Olga Chudina</option>
+                        <option>Elvira Lagunova</option>
+                        <option>Zhanna Sukhorukova</option>
+                    </select>
+                </form>
             </div>
-        </header>
-
-        <main>
-            <div class="video-container">
-                <video autoplay class="Intro__video" poster="https://yastatic.net/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif" playsinline="" muted="" loop="" pip="false"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/CITI.mp4" type="video/mp4"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/CITI.webm" type="video/webm"></video>  
-                <div class="content-type-1">
-                    <div class="text-container">
-                    <h1>Всегда<br>рядом</h1>
-                    <p>Приложение Яндекс.Такси поможет вам добраться до места быстро и недорого: прямо сейчас, днём и ночью, для всей семьи, картой и наличными. Вызывайте как нравится!</p>
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
             </div>
+        </div>
+    </div>
 
-            <div class="features">
-                <h2 class="features-header">Математическая точность</h2>
-                <div class="features-container">
-                    <div class="img-container">
-                    <img src="https://avatars.mds.yandex.net/get-bunker/60661/475e7a2ede86b1a011549f04940d85b3d4a51b4b/orig">
-                    <figcaption class="center">Знает ваш город и строит оптимальные маршруты</figcaption>
+
+    <div class="container">
+        <!-- Q1 -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p>Willingness to help</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question1" id="q1r1" value="1">
+                        <label class="form-check-label" for="q1r1">1</label>
                     </div>
-
-                    <div class="img-container">
-                    <img src="https://avatars.mds.yandex.net/get-bunker/135516/d85638c4a6915fcc8d06e1a981930b6b15613a7f/orig">
-                    <figcaption class="center">Находит машину, которая приедет к вам быстрее всего</figcaption>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question1" id="q1r2" value="2">
+                        <label class="form-check-label" for="q1r2">2</label>
                     </div>
-
-                    <div class="img-container">
-                    <img src="https://avatars.mds.yandex.net/get-bunker/135516/b2bca207db512ffdd4596463ba4d7bd658c00a56/orig">
-                    <figcaption class="center">Показывает ближайшую точку, откуда поездка будет дешевле</figcaption>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question1" id="q1r3" value="3">
+                        <label class="form-check-label" for="q1r3">3</label>
                     </div>
-                </div>
-            </div>
-
-            <div class="start-price-block">
-                <div class="start-price">
-                    <div class="video-wrapper">
-                        <div class="video-price-container">
-                            <video autoplay class="Price__video" poster="https://yastatic.net/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif" playsinline="" muted="" loop="" pip="false"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/PAY.mp4" type="video/mp4"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/PAY.webm" type="video/webm"></video>
-                            <div class="price_video-bubble">
-                                <div class="price_video-text">
-                                    99&nbsp;&#8381;
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question1" id="q1r4" value="4">
+                        <label class="form-check-label" for="q1r4">4</label>
                     </div>
-
-                    <div class="price-description">
-                        <div class="text-align-wrap">
-                            <h2>Москва<br>от 99 &#8381;</h2>
-                            <p>Вы указываете, куда ехать, и сразу видите цену — алгоритмы Яндекс.Такси уже просчитали дорожную ситуацию на пути. Стоимость поездки не увеличится, даже если машина попадёт в пробку или водитель отклонится от оптимального маршрута.</p>
-                            <p><a class="my-link" href="https://taxi.yandex.ru/#mrt">Подробнее о тарифах</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="payment-block">
-                <div class="payment-flex">
-                    <div class="pay-video-wrap">
-                        <video autoplay class="Pay__video" poster="https://yastatic.net/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif" playsinline="" muted="" pip="false"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/MONEY All.mp4" type="video/mp4"><source src="https://download.cdn.yandex.net/taxi/taxi-frontend/app/MONEY All.webm" type="video/webm"></video>
-                    </div>
-
-                    <div class="pay-content">
-                        <div class="pay-text-container">
-                            <h2>Платите как удобно</h2>
-                            <p>Оплачивайте поездки наличными водителю, банковской картой в приложении или Apple Pay.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="download-block" id="mobile">
-                <div class="download-flex">
-                    <h3 class="download">Скачайте приложение<br>из App Store и Google Play</h3>
-
-                    <p class="download">Введите номер и получите ссылку на телефон.</p>
-
-                    <div class="download-form">
-                            <input class="my-form" placeholder="+7 XXX XXX-XX-XX" />
-                            <input type="button" class="my-btn" value="ПОЛУЧИТЬ ССЫЛКУ" />
-
-                    </div>
-                    <div class="spacer">
-
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question1" id="q1r5" value="5">
+                        <label class="form-check-label" for="q1r5">5</label>
                     </div>
                 </div>
             </div>
-
-        </main>
-
-        <footer>
-            <div class="footer-container">
-                <div class="footer-content">
-                    <h4>Присоединяйтесь в соцсетях:</h4>
-                    <div class="footer-icons">
-                        <a href="https://facebook.com/yandex.taxi" target="_blank" class="social_link"><span class="ico_fb ico_social" title="facebook"></span></a>
-    
-                        <a href="https://instagram.com/yandex.taxi/" target="_blank" class="social_link"><span class="ico_instagram ico_social" title="instagram"></span></a>
-    
-                        <a href="https://vk.com/yandex.taxi" target="_blank" class="social_link"><span class="ico_vk ico_social" title="vk"></span></a>
+        </div>
+        <!-- Q2 -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p>Response speed</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question2" id="q2r1" value="1">
+                        <label class="form-check-label" for="q2r1">1</label>
                     </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="user-agreement">
-                        <a href="https://yandex.ru/legal/taxi_termsofuse/" class="my-link">Пользовательское соглашение</a>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question2" id="q2r2" value="2">
+                        <label class="form-check-label" for="q2r2">2</label>
                     </div>
-                    <div class="copyright">
-                        <span>&copy; 2009&ndash;2018 ООО «<a href="/" class="my-link">Яндекс.Такси</a>»</span>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question2" id="q2r3" value="3">
+                        <label class="form-check-label" for="q2r3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question2" id="q2r4" value="4">
+                        <label class="form-check-label" for="q2r4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question2" id="q2r5" value="5">
+                        <label class="form-check-label" for="q2r5">5</label>
                     </div>
                 </div>
             </div>
-        </footer>
-    
+        </div>
+        <!-- Q3 -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p>Professional knowledge</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question3" id="q3r1" value="1">
+                        <label class="form-check-label" for="q3r1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question3" id="q3r2" value="2">
+                        <label class="form-check-label" for="q3r2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question3" id="q3r3" value="3">
+                        <label class="form-check-label" for="q3r3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question3" id="q3r4" value="4">
+                        <label class="form-check-label" for="q3r4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question3" id="q3r5" value="5">
+                        <label class="form-check-label" for="q3r5">5</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Q4 -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p>Interpersonal skills</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question4" id="q4r1" value="1">
+                        <label class="form-check-label" for="q4r1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question4" id="q4r2" value="2">
+                        <label class="form-check-label" for="q4r2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question4" id="q4r3" value="3">
+                        <label class="form-check-label" for="q4r3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question4" id="q4r4" value="4">
+                        <label class="form-check-label" for="q4r4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question4" id="q4r5" value="5">
+                        <label class="form-check-label" for="q4r5">5</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Q5 -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p>Overall satisfaction rating</p>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question5" id="q5r1" value="1">
+                        <label class="form-check-label" for="q5r1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question5" id="q5r2" value="2">
+                        <label class="form-check-label" for="q5r2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question5" id="q5r3" value="3">
+                        <label class="form-check-label" for="q5r3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question5" id="q5r4" value="4">
+                        <label class="form-check-label" for="q5r4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="question5" id="q5r5" value="5">
+                        <label class="form-check-label" for="q5r5">5</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- separator -->
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>    
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-primary btn-lg">Submit your answers</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add some JS to show the alert when all the questions are answered -->
+    <div style="margin-top:1rem"></div>
+
+
+    <div class="container">
+    <!-- A submit button is pressed and all the questions are fulfilled -->
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Congratulations, you answered all the questions!</p>
+            <hr>
+            <p class="mb-0">Please wait until the survey will be finished by everyone and you will get the results by e-mail after.</p>
+        </div>
+    <!-- A submit button is pressed and NOT all the questions are fulfilled -->
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Not finished yet...</h4>
+            <hr>
+            <p class="mb-0">Please answer all the questions to submit your response.</p>   
+        </div>
+    </div>
+
+ 
+    <!-- scripts to enable bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
