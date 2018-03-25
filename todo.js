@@ -23,7 +23,7 @@ function cross(e) {
     localSave();
 };
 
-list.addEventListener('click', cross, false);
+list.addEventListener('click', cross);
 
 function clearList() {
     if (confirm("Are yor shure to clear all your tasks?")) {
