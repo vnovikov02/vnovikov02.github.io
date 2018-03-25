@@ -1,0 +1,8 @@
+.list-group li {
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.done {
+    text-decoration:line-through;
+}

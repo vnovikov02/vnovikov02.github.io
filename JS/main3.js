@@ -1,109 +1,91 @@
 /*
-// Cycle 'while'
-(function() {
+//Объекты
 
-var i = 5;
+var user = {
+    name: 'Egor',
+    lastName: 'Yakovishen',
+    sayHello: function() {
+        var myName = this.name + ' ' + this.lastName
+        alert('привет, my name is ' + myName);
+    }
+};
 
-while (i >= 0) {
-    console.log(i);
-    i--;
-}
+// window.user
 
-//Cycle 'for'
-    
-for (var i = 5; // Начальное значение
-    i >= 0;     // условие продолжения цикла
-    i--         // изменение счетчика
-) {
-        console.log(i);
-}
-    
-})()
 
+user.name // обращение к свойству `name` объекта `user`
+user.lastName // обращение к свойству `lastName` объекта `user`
+user.sayHello() // вызов функции `sayHello` объекта `user`
+
+//запись
+user.name = 'Ivan';
+user.lastName = 'Petrov'
 */
 
-/*
-(function() {
+//Глобальная переменная
 
-for (var i = -11;
-    i <= 11;
-    i++
-) {
-    if(i % 2 == 0) {
-    console.log(i + ' - четное');
-    }
-    else {
-    console.log(i + ' - нечетное');  
-    }
+/*
+var myName = 'smth'; //Global as not inside a function
+
+function myFunc() {
+    var a = 123; //Local, inside a function
+    alert(myName); //can be seen outside a function
 }
-
-})()
 */
 
-// вложенные циклы
-/*
-for (var i = 0; i <= 9; i++) {
-    for (var j = 0; j <= 9; j++) {
-      console.log('i * j = ' + i * j);
-    }
-  }
-*/
-
-
-// Массивы
-/*
 var cities = [
-    'Moscow',   // 0
-    'Berlin',   // 1
-    'Paris',    // 2
-    'New York', // 3
-    'Tokyo',    // 3
+    'Moscow',
+    'Berlin',
+    'Paris',
+    'New York',
+    'Tokyo',
 ];
 
-cities.push('Munich');
+var list = document.querySelector('.list');
 
-//cities.length //длина массива
+for (var i = 0; i <= (cities.length - 1); i++) {
+var listItem = document.createElement('li'); // <li></li>
+listItem.textContent = cities[i]; // <li>Moscow</li>
+list.appendChild(listItem); // <ul>...<li>Moscow</li></ul>
+};
 
-for (var i = 0; i < cities.length; i++) {
-    console.log(cities[i]);
-}
-*/
+//Находим на страницу кнопку с классом "add"
+var btn = document.querySelector('.add');
 
-//Функции
+//создаем функцию-обработчик
+function addCity() {
+    var newCity = prompt('Введите название города');
+    var listItem = document.createElement('li');
+    listItem.textContent = newCity;
+    list.appendChild(listItem);
+};
 
-// 1. Повторное использование
-// 2. Инкапсуляция
-// 3. Параметры/(аргументы)
 
-/*
-function sayHello(name, lastName) {
-    if (!name || !lastName) {
-        name = 'пользователь';
-    }
-    var fullName = name + " " + lastName;
-    console.log('Hello, ' + fullName + '!');
-}
+//Добавляем обработчик события "click" на этой кнопке
+btn.addEventListener('click', addCity);
 
-//OR: function sayHello(name = 'Пользователь') - значение по умолчанию
+//обработчик нажания клавиши А
+document.addEventListener('keydown', function (ev) {
+    if (ev.keyCode === 65) {
+        addCity();
+    };
+});
 
-sayHello('Егор', 'Яковишен');
-sayHello('Иван', 'Петров');
-sayHello();
-*/
 
-//задание
+list.addEventListener('mouseover', function () {
+    list.classList.add('highlight');
+});
 
-function makeLoop(start, end) {
-    //обработаем случай, если вдруг старт больше энда
-    if (start > end) {
-        start = [end, end = start][0];
-    }
-        for (var i = start; i <= end; i++) {
-            if (i % 2 == 0) {
-                console.log(i);
-            }
-        }
+list.addEventListener('mouseout', function () {
+    list.classList.remove('highlight');
+});
 
-}
+var btnShow = document.querySelector('.show');
+var btnHide = document.querySelector('.hide');
 
-makeLoop(5, -3);
+btnShow.addEventListener('click', function () {
+    list.style.display = 'block';
+});
+btnHide.addEventListener('click', function () {
+    list.style.display = 'none';
+});
