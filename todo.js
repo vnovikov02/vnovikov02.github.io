@@ -20,6 +20,7 @@ btnNewTask.addEventListener('click', addTask);
 
 function cross(e) {
     e.target.classList.toggle('done');
+    localSave();
 };
 
 list.addEventListener('click', cross, false);
