@@ -19,42 +19,39 @@
         <p>This app uses Google spreadsheets through API as back-end and HTML5 + Bootstrap 4.0 as front-end.</p>
     </div>    
 
+    <div class="container">
+    
     <form action="https://yandex.ru" method="GET" target="_blank">
 
-    <div class="container">
     
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form>
-                    <div class="form-group">
-                        <label for="InputName">Your name</label>
-                        <input type="email" class="form-control" id="InputName" placeholder="Ivan Ivanov" name="UserName">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputEmail">Your E-mail address</label>
-                        <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com" name="UserEmail">
-                    </div>
-                </form>
+                <div class="form-group">
+                    <label for="InputName">Your name</label>
+                    <input type="text"class="form-control" id="InputName"placeholder="Ivan Ivanov"name="UserName">
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Your E-mail address</label>
+                    <input type="email"class="form-control" id="InputEmail"placeholder="name@example.com"name="UserEmail">
+                </div>
             </div>
         </div>
 
         <!-- Below is the form to select the FBA - load from google spreadsheet later -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form>
-                    <label>Your financial business advisor</label>
-                    <select class="form-control">
-                        <option value="" selected disabled hidden>Please select</option>
-                        <option>Ivan Belyaev</option>
-                        <option>Yulia Chai-Van-Sebi</option>
-                        <option>Pavel Mironov</option>
-                        <option>Anastasia Strogova</option>
-                        <option>Daria Trushnikova</option>
-                        <option>Olga Chudina</option>
-                        <option>Elvira Lagunova</option>
-                        <option>Zhanna Sukhorukova</option>
-                    </select>
-                </form>
+                <label>Your financial business advisor</label>
+                <select class="form-control">
+                    <option value="" selected disabledhidden>Please select</option>
+                    <option>Ivan Belyaev</option>
+                    <option>Yulia Chai-Van-Sebi</option>
+                    <option>Pavel Mironov</option>
+                    <option>Anastasia Strogova</option>
+                    <option>Daria Trushnikova</option>
+                    <option>Olga Chudina</option>
+                    <option>Elvira Lagunova</option>
+                    <option>Zhanna Sukhorukova</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -62,10 +59,8 @@
                 <hr>
             </div>
         </div>
-    </div>
+    
 
-
-    <div class="container">
         <!-- Q1 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -212,19 +207,19 @@
                 <hr>
             </div>
         </div>    
-    </div>
+    
 
 
-
-    <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary btn-lg">Submit your answers</button>
             </div>
         </div>
-    </div>
+    
 
     </form>
+
+</div>
     <!-- Add some JS to show the alert when all the questions are answered -->
     <div style="margin-top:1rem"></div>
 
