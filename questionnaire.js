@@ -1,50 +1,32 @@
+//// Getting data from Google spreadsheet to load a list for assessment onload of webpage
+
+var googleListAPI = 'https://script.google.com/macros/s/AKfycbw5L1VsicC8eNY28DeiIhOi4jqtBrb82QsAvOgBTUFmpJgROih0/exec'
+
+window.addEventListener('load', function(loadlist) {
+fetch(googleListAPI)
+.then(function(response) {
+    return response.text();
+    })
+.then(function(response) {
+    var arrayList = response.split(',');
+    var listHTML = '<option>' + arrayList.join('</option><option>') + '</option>';
+    var fbaList = document.querySelector('.fba-list');
+    fbaList.innerHTML = fbaList.innerHTML + listHTML;
+    })
+.catch()
+});
+
+//// Submitting data to a published google app
+
 var myForm = document.querySelector('#webform');
-var googleAPI = 'https://script.google.com/macros/s/AKfycbyXjT273ZKUtHwwx8fFhWzMtJO5sWQr1Kth622qdBjpnZnZtBs/exec'
-
-// 1 -sending of request with jQuery
-
-// $('#webform').submit(function(e) {
-//     e.preventDefault();
-//     var dataJSON = $('#webform').serialize();
-//     debugger
-//     $.get(googleAPI, 
-//         {
-//         // contentType: 'application/json; charset=utf-8',
-//         data: dataJSON,
-//         crossDomain: true,
-//         dataType: 'jsonp',
-//         success:function() {
-//             console.log(dataJSON); //action after the form is successfully submitted
-//         }
-//     });
-// });
-
-// 2 - sending request using Fetch()
+var googleResultAPI = 'https://script.google.com/macros/s/AKfycbyXjT273ZKUtHwwx8fFhWzMtJO5sWQr1Kth622qdBjpnZnZtBs/exec'
 
 myForm.addEventListener('submit', function (ev) {
     ev.preventDefault();
-
-var dataJSON = $('#webform').serialize();
-
-//// try POST request - doesn't work with CORS
-
-// var params = {
-//     method: 'post',
-//     mode: 'no-cors',
-//     dataType: 'jsonp',
-//     body: dataJSON,
-//     headers: {
-//         'Content-type': 'application/json'
-//     }
-// };
-
-// fetch(googleAPI, params)
-// .then(response => response.json())
-// .then(json => console.log(json))
-
-
-//// try GET request - it worked finally
-var targetRequest = googleAPI + "?" + dataJSON;
+    // somy jquery magic to convert form data into string for json
+    var dataJSON = $('#webform').serialize();
+    // fetch'ing GET request
+    var targetRequest = googleResultAPI + "?" + dataJSON;
     fetch(targetRequest, {mode: 'no-cors'});
-debugger
 });
+
