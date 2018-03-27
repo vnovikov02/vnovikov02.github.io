@@ -14,18 +14,19 @@ var googleAPI = 'https://script.google.com/macros/s/AKfycbyXjT273ZKUtHwwx8fFhWzM
 //         crossDomain: true,
 //         dataType: 'jsonp',
 //         success:function() {
-//             console.log(dataJSON);//whatever you wanna do after the form is successfully submitted
+//             console.log(dataJSON); //action after the form is successfully submitted
 //         }
 //     });
 // });
 
 // 2 - sending request using Fetch()
 
-myForm.addEventListener('submit', function (ev) { // добавляем обработчик события submit (отправка формы)
+myForm.addEventListener('submit', function (ev) {
     ev.preventDefault();
 
 var dataJSON = $('#webform').serialize();
 
+//// try POST request - doesn't work with CORS
 
 // var params = {
 //     method: 'post',
@@ -42,11 +43,8 @@ var dataJSON = $('#webform').serialize();
 // .then(json => console.log(json))
 
 
-//// try GET request
-var request = new Request({
-    url: googleAPI + "?" + dataJSON,
-    method: 'GET'
-});
-fetch(request);
-
+//// try GET request - it worked finally
+var targetRequest = googleAPI + "?" + dataJSON;
+    fetch(targetRequest, {mode: 'no-cors'});
+debugger
 });
