@@ -17,8 +17,12 @@ fetch(googleListAPI)
 });
 
 //// Submitting data to a published google app
+var msgSuccess = document.querySelector('.alert-success');
+var msgError = document.querySelector('.alert-danger');
 
 var myForm = document.querySelector('#webform');
+var btnSubmit = document.querySelector('.btn-primary');
+
 var googleResultAPI = 'https://script.google.com/macros/s/AKfycbyXjT273ZKUtHwwx8fFhWzMtJO5sWQr1Kth622qdBjpnZnZtBs/exec'
 
 myForm.addEventListener('submit', function (ev) {
@@ -28,5 +32,8 @@ myForm.addEventListener('submit', function (ev) {
     // fetch'ing GET request
     var targetRequest = googleResultAPI + "?" + dataJSON;
     fetch(targetRequest, {mode: 'no-cors'});
+    msgError.setAttribute("hidden", "");
+    btnSubmit.setAttribute("hidden", "");
+    msgSuccess.removeAttribute("hidden");
 });
 
