@@ -57,12 +57,8 @@ myForm.addEventListener('submit', function (ev) {
         msgError.removeAttribute("hidden");
         msgSuccess.setAttribute("hidden", "");
     }
-    //built-in bootstrap form functionality - no need to make additional validation of Email field
+    //built-in bootstrap form functionality - no need to make additional validation of Email field using regular expressions
 
-    //// using function with regular expression to check validity
-    // else if (!validateEmail(formEmail.value)) {
-    //     console.log('please enter valid Email');
-    // }
     else if (fbaList.value.length === 0) {
         console.log('select your FBA');
         alerts.innerHTML = 'Please select your FBA'
@@ -76,11 +72,12 @@ myForm.addEventListener('submit', function (ev) {
         msgSuccess.setAttribute("hidden", "");
     }
     else {
-    // when all checks were passed -continue to submit the form data to the DB
+    // when all checks were passed - continue to submit the form data to the DB
     
     // somy jquery magic to convert form data into string for json
     var dataJSON = $('#webform').serialize();
-    // fetch'ing GET request
+
+    // fetch'ing GET request - send JSON with submitted answeres
     var targetRequest = googleResultAPI + "?" + dataJSON;
     fetch(targetRequest, {mode: 'no-cors'});
     msgError.setAttribute("hidden", "");
@@ -126,11 +123,3 @@ function ValidateGroup(radios) {
     };
     return validGroup;
 };
-
-// already built-in in the Email form - no need:
-
-// regular expression to check Email address validity
-// function validateEmail(email) {
-//     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(email);
-// };

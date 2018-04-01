@@ -24,8 +24,6 @@
     <div class="container">
     
     <form id="webform">
-         <!-- action="https://script.google.com/macros/s/AKfycbyXjT273ZKUtHwwx8fFhWzMtJO5sWQr1Kth622qdBjpnZnZtBs/exec" method="GET"> -->
-
     
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -205,19 +203,19 @@
         </div>    
     
     </div>
-    <!-- Add some JS to show the alert when all the questions are answered -->
+
     <div style="margin-top:1rem"></div>
 
 
     <div class="container">
-    <!-- A submit button is pressed and all the questions are fulfilled: remove 'hidden' attribute -->
+    <!-- A submit button is pressed and all the questions are fulfilled: toggle 'hidden' attribute -->
         <div class="alert alert-success" role="alert" hidden>
             <h4 class="alert-heading">Well done!</h4>
             <p>Congratulations, you answered all the questions!</p>
             <hr>
             <p class="mb-0">Your response is now recorded.</p>
         </div>
-    <!-- A submit button is pressed and NOT all the questions are fulfilled: remove 'hidden' attribute-->
+    <!-- A submit button is pressed and NOT all the questions are fulfilled: toggle 'hidden' attribute-->
         <div class="alert alert-danger" role="alert" hidden>
             <h4 class="alert-heading">Not finished yet...</h4>
             <hr>
@@ -237,8 +235,6 @@
     
 
     </form>
-
-
 
  
     <!-- scripts to enable bootstrap and jquery -->
