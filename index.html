@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questionnaire</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="required.css">
     <script src="questionnaire.js" defer></script>
 
 
@@ -28,11 +29,11 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="form-group">
-                    <label for="InputName">Your name</label>
+                    <label for="InputName" class="required">Your name</label>
                     <input type="text" class="form-control" id="InputName" placeholder="Ivan Ivanov" name="UserName">
                 </div>
                 <div class="form-group">
-                    <label for="InputEmail">Your E-mail address</label>
+                    <label for="InputEmail" class="required">Your E-mail address</label>
                     <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com" name="UserEmail">
                 </div>
             </div>
@@ -41,7 +42,7 @@
 
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <label>Your financial business advisor</label>
+                <label class="required">Your financial business advisor</label>
                 <select class="form-control fba-list" name="fba">
                     <option value="" selected disabled hidden>Please select</option>
         <!-- List for selection is added here on load of document using JS (function loadlist) - fetch from google spreadsheet -->
@@ -58,7 +59,7 @@
         <!-- Q1 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Willingness to help</p>
+                <p class="required">Willingness to help</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="question1" id="q1r1" value="1">
@@ -86,7 +87,7 @@
         <!-- Q2 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Response speed</p>
+                <p class="required">Response speed</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="question2" id="q2r1" value="1">
@@ -114,7 +115,7 @@
         <!-- Q3 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Professional knowledge</p>
+                <p class="required">Professional knowledge</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="question3" id="q3r1" value="1">
@@ -142,7 +143,7 @@
         <!-- Q4 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Interpersonal skills</p>
+                <p class="required">Interpersonal skills</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="question4" id="q4r1" value="1">
@@ -170,7 +171,7 @@
         <!-- Q5 -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Overall satisfaction rating</p>
+                <p class="required">Overall satisfaction rating</p>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="question5" id="q5r1" value="1">
