@@ -1,14 +1,14 @@
-var arrOutput = [];
-var sum = 0;
+let arrOutput = [];
+let sum = 0;
 
-for (var i = 2; i<process.argv.length; i++){
+for (let i = 2; i<process.argv.length; i++){
 
     arrOutput.push(parseInt(process.argv[i]));
     sum += parseInt(process.argv[i]);
     
 }
 
-var average;
+let average;
 average = sum/(arrOutput.length);
 
 console.log(arrOutput);
