@@ -1,0 +1,77 @@
+SCRIPT FROM BLUEGATE (EXISTING)
+
+
+/* Calcul du CA cross canal hors taxe car on pilote du TTC */
+"700300"="7XCAN1"/("BTXTVA" + 1);
+"700310"="7XCAN2"/("BTXTVA" + 1);
+"700320"="7XCAN3"/("BTXTVA" + 1);
+"704100"="704TTCXCANAL"/("BTXTVA" + 1);
+
+/* Egaliser les comptes miroirs */
+"70030B"="700300";
+"70031B"="700310";
+"70032B"="700320";
+"70410B"="704100";
+"622235"=("T7XCAN"+"704TTCXCANAL")* "BCOMMIO";
+
+/* Calcul des marges omnicanal */
+"MARPRO"="BTXMGKPO" * "T7XCAN";
+"MARSERO"="BTXMGKSO" * "704TTCXCANAL";
+
+/* Calcul des achats omnicanal */
+            "604300"="704100"-"MARSERO"; /*Services*/
+"607605"= ("700300" + "700310" + "700320")-"MARPRO"; /*Produits*/ 
+
+/* Calcul des quantités omnicanal */
+"S13513"="T7XCAN"/"PREVEMOO";
+"S13313" = "T7XCAN" / "S13400P";
+
+/* Calcul du CA HT */
+"70000B"="700TTC"/("BTXTVA" + 1); 
+"700000" = "70000B";
+
+/* Calcul de la marge caisse */
+"CASMGI" = "BTXMGKS" * "700TTC";
+
+/* Calcul de la provision D.I : */
+"S24300" = "BTXDEMARQ" * "700TTC";
+
+/*Calcul montant commission cartes */
+"622200" = "700TTC" * "BPCACB" * "BCOMMI";
+
+/*Quantité MMR*/
+"S13500" ="700TTC" / "PRVEMO";
+
+/*Clients acheteurs MMR 28/05/15*/
+"S13300" ="700TTC" / "S13400"; 
+            "370000" = "T30TTC"*(1 / (1 + "BTXTVA") - "BTXMGKS");
+
+            /* Calcul Chèque fidélité */
+            "709730" = "700TTC"*"BCHQFI"*(-1);
+
+/* Calcul des contributions */  
+/*"652005" = "700EXT" * "BTXCRP"; 
+"652015" = "700EXT" * "BTXCPP"; 
+"652025" = "700EXT" * "BTXCGP"; 
+"652095" = "700EXT" * "BTXCPPP"; 
+"652105" = "700EXT" * "BTXCMARK";*/
+ 
+/* Calcul Margin */
+            "607005" = "700000" - "CASMGI" + "S24100" + "S24300" + "S24236" + "S24200";      
+/*"GROMGI" = "CASMGI" - "T68174" + "T70970" + "TMARGO";*/
+
+/* Calcul des produits fi */
+            "661135"="700TTC"*"BCOEFPF" * (-1);;
+     ENDFIX
+
+ 
+     FIX(@IRSIBLINGS(&ProbMonth)) 
+       /* Calcul des contributions */  
+"652005" = "700EXT" * "BTXCRP"; 
+"652015" = "700EXT" * "BTXCPP"; 
+"652025" = "700EXT" * "BTXCGP"; 
+            "652095" = "700EXT" * "BTXCPPP"; 
+"652105" = "700EXT" * "BTXCMARK";
+/* Calcul des frais fi */
+            "661145"="T33000"*"BCOEFFI";  
+/* Calcul Margin */   
