@@ -17,9 +17,7 @@ let ageAverage = (ageSum / usersCount).toFixed(2);
 console.log('Средний возраст пользователей: ' + ageAverage);
 
 //List all users in format "age name" as a string
-let formattedList = dataParsed.map((user) => {
-    return user.age + ' ' + user.name;
-}).join(', ');
+let formattedList = dataParsed.map((user) => user.age + ' ' + user.name).join(', ');
 
 console.log(formattedList)
 
