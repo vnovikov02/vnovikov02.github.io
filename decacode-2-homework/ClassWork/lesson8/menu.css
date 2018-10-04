@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+  }
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+aside {
+    width: 20%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgb(200, 200, 200);
+    position: fixed;
+    margin: 0;
+    display: none;
+}
+
+.darklayer {
+    margin: 0;
+    height: 100%;   
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    position: fixed;
+    display: none;
+}
+
+ul {
+    margin: 0;
+    padding: 15px;
+}
+
+li {
+    margin-left: 10%;
+    font-size: 20px;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    position: fixed;
+    left:50%;
+    top:50%;
+}
