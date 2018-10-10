@@ -1,28 +1,43 @@
 (() => {
   //slides content
-  const $arrSlides = document.body.dataset.slides;
-  const $arrContent = $arrSlides.split(', ');
+  const $arrContent = document.body.dataset.slides.split(', ');
 
-  // const $container = document.createElement('div');
-  // $container.classList.add("container");
-  // document.body.append($container);
+  //create html page structure 
+  const $container = document.createElement('div');
+  $container.classList.add("container");
+  document.body.append($container);
 
+  const $prev = document.createElement('button');
+  $prev.classList.add("control","prev");
+  $prev.innerText = 'Prev';
+  $container.append($prev);
 
+  const $sliderBox = document.createElement('div');
+  $sliderBox.classList.add("slider-box");
+  $container.append($sliderBox);
 
+  const $next = document.createElement('button');
+  $next.classList.add("control","next");
+  $next.innerText = 'Next';
+  $container.append($next);
 
-  const $sliderBox = document.querySelector(".slider-box");
-  
-  //pagination positioning
+  //for determination of elements position
   const rect = $sliderBox.getBoundingClientRect();
-  const $pagination = document.querySelector(".pagination");
+
+  //create div for pagination elements
+  const $pagination = document.createElement('div');
+  $pagination.classList.add("pagination");
+  document.body.append($pagination);
   $pagination.style.top = rect.bottom + 'px';
   $pagination.style.left = rect.left + (rect.width / 2) + 'px';
-
-  //progress label positioning
-  const $progress = document.querySelector(".progress");
+  
+  //create div for progress label
+  const $progress = document.createElement('div');
+  $progress.classList.add("progress");
+  document.body.append($progress);
   $progress.style.top = rect.top -10 + 'px';
   $progress.style.left = rect.left + (rect.width / 2) + 'px';
-
+  
   //dynamic creation of slides and pagination elements
   $arrContent.forEach(($Content, i) => {
     const $slide = document.createElement('div');
@@ -33,7 +48,7 @@
     
     $slide.append($slideText);  
     $slide.classList.add("my-Slide");
-   $sliderBox.append($slide);
+    $sliderBox.append($slide);
 
     const $page = document.createElement('a');
     $page.setAttribute('slideNum', i);
@@ -82,16 +97,17 @@
     $progress.innerHTML = '<p>' + (parseInt(num) + 1) + '/' + $arrContent.length + '</p>';
   }
   
-  const $next = document.querySelector('.next');
+  //'Next' button handler
   $next.addEventListener('click', () => {
     SlideChange(1);
   })
 
-  const $prev = document.querySelector('.prev');
+  //'Prev' button handler
   $prev.addEventListener('click', () => {
     SlideChange(-1);
   })
 
+  //Slides auto rotation: as no button was mentioned in the task, I left automated slide change without possibility to switch it on/off.
   setInterval(function() {SlideChange(1)}, 4000);
 
   })();

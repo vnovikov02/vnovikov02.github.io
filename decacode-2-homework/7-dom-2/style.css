@@ -4,18 +4,19 @@ html, body {
 }
 
 .my-Slide {
-    /* background-color: rgb(180, 180, 180); */
+    background-color: rgb(210, 210, 210);
     box-sizing: border-box;
     text-align: center;
     font-size: 45px;
-    display: none;
-    height: inherit;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
 
-
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    transition: opacity 1s;
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
 }
 
 .active {
@@ -25,6 +26,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: inherit;
 }
 
 .container {
