@@ -1,0 +1,33 @@
+<body>
+    <img src="" id="img"/>
+    <button type="button" id="button">KITIK</button>
+    <script>
+    (() => {
+      const $button = document.getElementById('button');
+      const $img = document.getElementById('img');
+      let isLoading = false;
+
+      $button.addEventListener("click", () => {
+        if (isLoading === false) {
+          $button.textContent = 'loading...';
+          isLoading = true;
+
+          fetch('https://aws.random.cat/meow')
+            .then((response) => response.json())
+            .then((data) => {
+              const img = document.createElement('img');
+
+              img.addEventListener('load', function() {
+                $button.textContent = 'KITIK';
+                $img.setAttribute("src", data.file);
+                isLoading = false;
+              });
+
+              img.src = data.file;
+            });
+          }
+        })
+    })();
+
+    </script>
+</body>
