@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CLASSWORK</title>
+  </head>
+  <body>
+    <div class="tabs">
+      <div class="tab active">Tab1</div>
+      <div class="tab">Tab2</div>
+      <div class="tab">Tab3</div>
+    </div>
+
+    <div class="blocks">
+      <div class="block active">Tab content 1</div>
+      <div class="block">Tab content 2</div>
+      <div class="block">Tab content 3</div>
+    </div>
+
+    <style>
+      .block {display: none; border: 1px solid black; padding: 20px;}
+      .block.active {display: block;}
+      .tabs {display: flex; width: 300px;}
+      .tab {cursor: pointer; margin-right: 10px;}
+      .tab.active {color: red;}
+    </style>
+
+    <script type="text/javascript">
+      (function() {
+        const $tabs = [].slice.call(document.querySelectorAll('.tab'));
+        const $blocks = [].slice.call(document.querySelectorAll('.block'));
+
+        const onClick = (index) => () => {
+          $blocks.forEach(($block, i) => {
+            if (index === i) {
+              $block.classList.add('active');
+            } else {
+              $block.classList.remove('active');
+            }
+          });
+
+          $tabs.forEach(($tab, i) => {
+            if (index === i) {
+              $tab.classList.add('active');
+            } else {
+              $tab.classList.remove('active');
+            }
+          });
+        };
+
+        $tabs.forEach(($tab, index) => {
+          $tab.onclick = onClick(index);
+        });
+      })();
+    </script>
+  </body>
+</html>

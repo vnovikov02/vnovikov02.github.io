@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CLASSWORK</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .tooltip {
+        font-size: 10px;
+        position: absolute;
+        transform: translateX(-50%);
+        margin-top: 2px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <button data-tooltip="This is tooltip">Text</button>
+    <button data-tooltip="This is tooltip 2">Awesome</button>
+
+    <script type="text/javascript">
+      (() => {
+        const $tooltip = document.createElement('div');
+        $tooltip.classList.add('tooltip');
+
+        document.addEventListener('mouseover', event => {
+          if (event.target.hasAttribute('data-tooltip')) {
+            $tooltip.textContent = event.target.getAttribute('data-tooltip');
+            const rect = event.target.getBoundingClientRect();
+            $tooltip.style.top = rect.bottom + 'px';
+            $tooltip.style.left = rect.left + (rect.width / 2) + 'px';
+            document.body.append($tooltip);
+          }
+        }, {passive: true});
+
+        document.addEventListener('mouseout', event => {
+          if (event.target.hasAttribute('data-tooltip')) {
+            $tooltip.textContent = event.target.getAttribute('data-tooltip');
+            $tooltip.parentNode.removeChild($tooltip);
+          }
+        }, {passive: true});
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<button data-counter>1</button>
+<button data-counter>2</button>
+
+<script>
+  document.onclick = event => {
+    if (!event.target.hasAttribute('data-counter')) return;
+    const counter = event.target;
+    counter.innerHTML++;
+  };
+</script>
