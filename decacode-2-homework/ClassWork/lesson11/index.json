@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1",
+    "title": "Rock"
+  },
+  {
+    "id": "2",
+    "title": "Jazz"
+  },
+  {
+    "id": "3",
+    "title": "Hip-Hop"
+  },
+  {
+    "id": "10",
+    "name": "Metal"
+  },
+  {
+    "id": "11",
+    "name": "Rock'n'Roll",
+    "bands": [
+      "Rolling Stones"
+    ]
+  }
+]
