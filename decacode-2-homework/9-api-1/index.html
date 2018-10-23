@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Breweries</title>
+  </head>
+  <body>
+
+    <input type="text" id="searchField" placeholder="Введите имя пивоварни">
+    <button type="button" id="searchBtn">Поиск</button>
+    <ul id="brwryList"></ul>
+
+    <script type="text/javascript">
+      (() => {
+
+        const $searchBtn = document.getElementById('searchBtn');
+        const $searchField = document.getElementById('searchField');
+        const $brwryList = document.getElementById('brwryList');
+        
+        const brwry_API_full = 'https://api.openbrewerydb.org/breweries';
+        const brwry_API_search = 'https://api.openbrewerydb.org/breweries?by_name='
+        
+        $searchBtn.onclick = () => {
+
+            $brwryList.innerHTML = '';
+
+            let API_url;
+            $searchField.value === '' ? API_url = brwry_API_full : API_url = brwry_API_search + $searchField.value;
+
+            fetch(API_url)
+            .then(response => response.json())
+            .then(data => {
+                const $elements = data.map(brwry => {
+                    const $el = document.createElement('li');
+                    $el.textContent = brwry.name;            
+                    
+                    //create a nested ul for all other brewery keys except name:
+                    const $ul = document.createElement('ul');
+                    $el.append($ul)
+                    
+                    delete brwry.name;
+
+                    const $contents = Object.values(brwry).map(item => {
+                        const $desc = document.createElement('li');
+                        $desc.textContent = item;
+                        //console.log(brwry);
+                        return $desc;
+                    });
+                    
+                    $contents.forEach($element => {
+                        $ul.append($element);
+                    })
+                    
+                    return $el;
+                });
+
+                $elements.forEach($element => {
+                    $brwryList.append($element);
+                });
+            });
+        }
+      })();
+    </script>
+
+  </body>
+</html>

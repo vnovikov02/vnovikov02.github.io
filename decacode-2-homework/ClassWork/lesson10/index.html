@@ -1,0 +1,87 @@
+<body>
+  <ul id="root"></ul>
+
+  <form id="form">
+    <input type="text" placeholder="Название" required>
+    <button type="submit">Сохранить</button>
+  </form>
+
+  <script>
+      (() => {
+
+        const $root = document.getElementById('root');
+        
+        //delete element
+        document.body.addEventListener('click', event => {
+          if(event.target.hasAttribute('data-id')) {
+            const id = event.target.getAttribute('data-id');
+            fetch('http://localhost:3000/plants/' + id, {
+              method: 'DELETE'
+            })
+            .then(() => {
+              const $li = event.target.parentNode;
+              $li.parentNode.removeChild($li); 
+            })
+          }
+        })
+
+        //create new plant to API
+        const $form = document.getElementById('form');
+        $form.addEventListener('submit', event => {
+          event.preventDefault();
+          const $input = $form.querySelector('input'); 
+          const data = {
+            name: $input.value
+          };
+
+          fetch('http://localhost:3000/plants', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }).then(response => response.json())
+            .then(plant => {
+            $input.value = '';
+            const $el = document.createElement('li');
+            $el.textContent = plant.name;
+
+            const $del = document.createElement('button');
+            $del.textContent = 'X';
+            $del.type = 'button';
+            $el.append($del);
+
+            $root.append($el);
+          });
+        });
+
+
+        //get plants from api
+        fetch('http://localhost:3000/plants')
+          .then(response => response.json())
+          .then(data => {
+            const $elements = data.map(plant => {
+              const $el = document.createElement('li');
+              $el.textContent = plant.name;
+
+              // const $img = document.createElement('img');
+              // $img.setAttribute('src', plant.image);
+              // $el.append($img);
+
+              const $del = document.createElement('button');
+              $del.textContent = 'X';
+              $del.setAttribute('data-id', plant.id);
+              $del.type = 'button';
+              $el.append($del);
+
+              return $el;
+            });
+
+            //console.log($elements);
+            $elements.forEach($element => {
+              $root.append($element);
+            });
+          });    
+      })();
+  </script>
+</body>
